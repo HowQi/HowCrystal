@@ -8,7 +8,7 @@
 
 - Newtonsoft.Json
 
-- HowSimpleObject
+- HowSimpleObject (这是我自创的纯文本数据格式, [项目地址](https://github.com/HowQi/HSO))
 
 ## 功能概述
 
@@ -46,4 +46,6 @@ HowCrystal需要执行,需要您提供
 
 - 直播观测目标文件,路径: `可执行文件所在目录\HowCfg\直播服务注册者.hso`,文件内含注释。
 
+## 许可证
 
+使用AGPL授权,这意味着依赖于此项目的程序需要开源。
