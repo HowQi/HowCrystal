@@ -1,0 +1,8 @@
+//Mirai HTTP API注册的服务器的地址
+host="0.0.0.0";
+//Mirai HTTP API注册的服务器的端口
+port="65531";
+//为Mirai HTTP设定的密钥
+authKey="______";
+//机器人QQ号。登录请先保证Mirai Console已经登入了机器人
+qq="00000000000";

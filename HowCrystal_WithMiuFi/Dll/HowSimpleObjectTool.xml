@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HowSimpleObjectTool</name>
+    </assembly>
+    <members>
+        <member name="T:HowSimpleObjectTool.HowSimpleObject">
+            <summary>
+            How简单对象。
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObject.inner">
+            <summary>
+            真实数据存放位置
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObject.ContainsAttr(System.String)">
+            <summary>
+            确实是否存在成员变量
+            </summary>
+            <param name="attrName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObject.RemoveAttr(System.String)">
+            <summary>
+            移除某成员变量
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleObject.Item(System.String)">
+            <summary>
+            访问成员变量,若变量不存在,返回空
+            </summary>
+            <param name="attrName">变量名</param>
+            <returns>请求的HowSimpleItem实例</returns>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleItem">
+            <summary>
+            HowSimpleObject的数据项。HowSimpleObject的属性即是HowSimpleItem。
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleItem.ItemType">
+            <summary>
+            获取本HowSimpleItem的类型
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleItem.Value">
+            <summary>
+            作为简单数据访问
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleItem.Item(System.String)">
+            <summary>
+            作为字典访问
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleItem.Item(System.Int32)">
+            <summary>
+            作为数组访问
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleItem.ToString">
+            <summary>
+            将Item转换为文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleItemType">
+            <summary>
+            HowSimpleItem自身的类型枚举。需要时根据枚举的指示将HowSimpleItem进行转型。
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleItemType.Value">
+            <summary>
+            纯粹数据,可直接访问内容,可转化为HowSimpleValue
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleItemType.Dict">
+            <summary>
+            字典,可通过键访问内容,可转化为HowSimpleDictionary
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleItemType.Ary">
+            <summary>
+            数组,可通过索引访问内容,可转化为HowSimpleArray
+            </summary>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowItemTypeAndOperateNotMatchException">
+            <summary>
+            类型匹配异常。类型不匹配时抛出该异常
+            </summary>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleValueItem">
+            <summary>
+            简单数据项目
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleValueItem.inner">
+            <summary>
+            数据真实存储位置。改变它也会改变整个对象的数据。
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleValueItem.Value">
+            <summary>
+            访问该变量表示的数据
+            </summary>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleDictionaryItem">
+            <summary>
+            带有键值对的项目
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleDictionaryItem.inner">
+            <summary>
+            Item的数据真实存放位置。用户可直接操作之以改变整个Item的数据,也可以间接通过Item提供的函数接口访问。
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleDictionaryItem.ContainsKey(System.String)">
+            <summary>
+            测试是否包含键。简单地返回了内部字典的相同方法。
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleDictionaryItem.RemoveKVPair(System.String)">
+            <summary>
+            移除键值对(用键来标志希望移除的键值对)。简单调用了内部字典的移除方法。需要更多样的移除操作可直接访问inner变量。
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleDictionaryItem.Count">
+            <summary>
+            返回字典项目数
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleDictionaryItem.Item(System.String)">
+            <summary>
+            访问字典内的数据。数据不存在时返回空。
+            </summary>
+            <param name="attrName">索引名</param>
+            <returns></returns>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleDictionaryItem.ToString">
+            <summary>
+            以字符串形式返回字典内容,形式类似python风格。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleArrayItem">
+            <summary>
+            数组项目
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleArrayItem.inner">
+            <summary>
+            数据真实存放位置。可通过操作之修改本对象的数据。
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleArrayItem.Add(System.String)">
+            <summary>
+            添加数据。
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleArrayItem.RemoveAt(System.Int32)">
+            <summary>
+            移除数据
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleArrayItem.Count">
+            <summary>
+            数组长度
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleArrayItem.Item(System.Int32)">
+            <summary>
+            访问数组内的数据
+            </summary>
+            <param name="idx">索引值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleArrayItem.ToString">
+            <summary>
+            将对象转换为文本形式,风格类似于python。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser">
+            <summary>
+            文档内容解析器,其一个实例仅可做一次解析,不可重复解析。
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.isAry">
+            <summary>
+            标记本次读取的数据是否是系列Obj
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.article">
+            <summary>
+            文档生成器
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.commentBuf">
+            <summary>
+            注释寄存器。存放有义注释用。
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.eleBuf">
+            <summary>
+            元素寄存器。储存满后用于构造完整的元素。
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.hsiBuf">
+            <summary>
+            HSI缓存,用于组成HowSimpleItem
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.hsoBuf">
+            <summary>
+            HSO缓存,用于组成HowSimpleObject
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.objs">
+            <summary>
+            HSOs缓存,用于组成HowSimpleObject数组
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ResultHSO">
+            <summary>
+            获取独立对象的解析结果
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ResultHSOList">
+            <summary>
+            获取数组对象的解析结果(返回列表)
+            </summary>
+        </member>
+        <member name="P:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ResultHSOAry">
+            <summary>
+            获取列表对象的解析结果(返回数组)
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ClearComment">
+            <summary>
+            清理
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.OutObj">
+            <summary>
+            输出Obj,如果是数组,也会加入数组
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.OutAry">
+            <summary>
+            输出数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.FinishContent">
+            <summary>
+            完成"内容元素"
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.FinishQuotationContent">
+            <summary>
+            完成"引用内容"
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.FinishOperater">
+            <summary>
+            完成操作符
+            </summary>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.Element">
+            <summary>
+            内容元素。即操作符 or 变量名 or 变量内容
+            </summary>
+        </member>
+        <member name="M:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.IsASP(HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType)">
+            <summary>
+            ASP = All Space 指包含换行在内的空白字符
+            </summary>
+            <param name="cht"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType">
+            <summary>
+            字符类型枚举
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.NL">
+            <summary>
+            换行符
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.ISP">
+            <summary>
+            空白字符(不包括换行的)
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.CH">
+            <summary>
+            有意义的字符
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.OP">
+            <summary>
+            操作符
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.SPARA">
+            <summary>
+            分隔符(引号、花括号、分号)
+            </summary>
+        </member>
+        <member name="F:HowSimpleObjectTool.HowSimpleObjectBuilder.Parser.ChType.OTHERSYMBOL">
+            <summary>
+            其他符号
+            </summary>
+        </member>
+        <member name="T:HowSimpleObjectTool.HowSimpleObjectParsingException">
+            <summary>
+            数据解析时发现的问题将以此异常形式抛出。
+            </summary>
+        </member>
+    </members>
+</doc>
