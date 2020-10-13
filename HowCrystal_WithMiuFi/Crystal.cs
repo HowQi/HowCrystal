@@ -63,7 +63,7 @@ namespace HowCrystal
                     botQQ = long.Parse(obj["qq"].Value);
                     if (host == null || authK == null) throw new Exception("读取服务器配置文件失败");
                 }
-                MiraiHttpSessionOptions opts = new MiraiHttpSessionOptions(host, 7456, authK);
+                MiraiHttpSessionOptions opts = new MiraiHttpSessionOptions(host, port, authK);
                 await using MiraiHttpSession session_ = new MiraiHttpSession();
                 session = session_;
                 session_.DisconnectedEvt += Session_DisconnectedEvt;
